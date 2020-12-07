@@ -1,0 +1,5 @@
+- id: swag
+  name: 'swag'
+  entry: run-swag.sh
+  language: 'script'
+  description: 'Runs `swag init`, requires https://github.com/swaggo/swag'
