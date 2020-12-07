@@ -1,7 +1,11 @@
 #!/bin/sh
 
-set -e
+swag init > /dev/null 2>&1
 
-exec 5>&1
-output="$(swag init)"
-[[ -z "$output" ]]
+git diff --no-patch --exit-code docs
+
+if [ $? -eq 1 ]; then
+    echo "Docs differs, please re-add it to your commit"
+
+    exit 1
+fi
